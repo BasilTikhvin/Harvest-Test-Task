@@ -1,34 +1,32 @@
+using System.Collections;
 using UnityEngine;
 
 namespace TestTask
 {
     public class PlantedCube : MonoBehaviour
     {
-        [SerializeField] private float _timeToRipe;
-        [SerializeField] private float _ripeScaleMultiplier;
-        [SerializeField] private Material _ripeMaterial;
+        [SerializeField] private float _timeToGrow;
+        [SerializeField] private float _grownScaleMultiplier;
+        [SerializeField] private Material _grownMaterial;
 
-        public bool IsRipe { get; private set; }
+        public bool IsGrown { get; private set; }
 
         private Renderer _renderer;
 
         private void Start()
         {
             _renderer = GetComponentInChildren<Renderer>();
+
+            StartCoroutine(GrowingUp());
         }
 
-        private void Update()
+        private IEnumerator GrowingUp()
         {
-            if (_timeToRipe > 0)
-                _timeToRipe -= Time.deltaTime;
+            yield return new WaitForSeconds(_timeToGrow);
 
-            if (_timeToRipe <= 0 && IsRipe == false)
-            {
-                IsRipe = true;
-
-                transform.localScale *= _ripeScaleMultiplier;
-                _renderer.material = _ripeMaterial;
-            }
+            IsGrown = true;
+            transform.localScale *= _grownScaleMultiplier;
+            _renderer.material = _grownMaterial;
         }
     }
 }

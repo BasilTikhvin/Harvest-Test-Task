@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TestTask
 {
-    public class Plant : MonoBehaviour
+    public class PlantingHarvesting : MonoBehaviour
     {
         [SerializeField] private PlantedCube _plantPrefab;
         [SerializeField] private Vector3 _plantOffset;
@@ -18,7 +18,7 @@ namespace TestTask
             {
                 if (Physics.Raycast(transform.position, transform.forward, out _hit) && _hit.transform.root.TryGetComponent(out PlantedCube cube))
                 {
-                    if (cube.IsRipe == true)
+                    if (cube.IsGrown == true)
                         Destroy(cube.gameObject);
                 }
             }

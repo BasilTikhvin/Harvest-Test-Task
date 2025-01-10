@@ -150,6 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824f7b939606d98408e80256e14ad47c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeToRipe: 10
-  _ripeScaleMultiplier: 2
-  _ripeMaterial: {fileID: 2100000, guid: 29153cd3269ba8b4a89e138533d42f44, type: 2}
+  _timeToGrow: 10
+  _grownScaleMultiplier: 2
+  _grownMaterial: {fileID: 2100000, guid: 29153cd3269ba8b4a89e138533d42f44, type: 2}
